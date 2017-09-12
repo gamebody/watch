@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="watch.js"></script>    
+    <script>
+        const log = console.log.bind(window)
+
+        const obj = {
+            a: 1,
+            b: 2,
+            c: ['a', 'b', 'c'],
+            d: {
+                e: 3,
+                f: 4,
+            },
+            g: 10000,
+        }
+
+        const watch = new Watch(obj)
+            .sleep(1000)
+            .level(2)
+            .fire(function() {
+                console.log('---------------')
+            })
+
+        obj.a = 44
+        obj.b = 44
+        obj.d.e = 9999
+        obj.d.f = 9999
+        
+        
+    </script>
+</body>
+</html>
